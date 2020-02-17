@@ -1,4 +1,4 @@
-package org.raccoon.concert.user.model
+package org.raccoon.concert.concert.model
 
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -6,18 +6,17 @@ import java.sql.Timestamp
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-
 import javax.persistence.Table
 
 @Entity
-@Table(name = "user")
-class UserVO (
+@Table(name ="reservation")
+class ReservationVO (
         @Id
         @GeneratedValue
         var id : Long,
         var userId : String,
-        var username : String,
-        var passwrod : String,
+        var concert: Int,
+        var seatNum : Int,
         @CreationTimestamp
         var regdate : Timestamp,
         @UpdateTimestamp
