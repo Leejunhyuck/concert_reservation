@@ -17,18 +17,20 @@ class UserController (
         val service : UserService
 
 ){
-    @PostMapping("/register")
-    fun register(@RequestBody userDto: UserDto) : ResponseEntity<UserVO> {
-        println(userDto)
-        var name = service.register(userDto)
+  
+    @PostMapping("/login")
+    fun login(@RequestBody @valid userDto: UserLoginDto){
 
-        return ResponseEntity (name, HttpStatus.OK)
+
+
     }
 
+    @PostMapping("/register")
+    fun register(@RequestBody @valid userRegDto: UserDto) : ResponseEntity<UserVO> {
+        println(userDto)
+        var user = service.register(userDto)
 
-    @PostMapping("/login")
-    fun login(){
-
+        return ResponseEntity (user, HttpStatus.OK)
     }
 
     @GetMapping("/mypage")

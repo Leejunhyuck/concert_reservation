@@ -13,8 +13,6 @@ import javax.persistence.Table
 @Table(name = "user")
 class UserVO (
         @Id
-        @GeneratedValue
-        var id : Long,
         var userId : String,
         var username : String,
         var passwrod : String,
@@ -22,5 +20,9 @@ class UserVO (
         var regdate : Timestamp,
         @UpdateTimestamp
         var updatedate : Timestamp
+
+        @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+        @JoinColumn(name = "member")
+        var List<MemberRole> roles;
 
 )

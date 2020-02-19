@@ -6,7 +6,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserServiceImpl(
-
+    @Autowired
+    val userRepo : UserRepository
+    @Autowired
+    val 
+    //콘서트 정보
 ) : UserService{
     fun mypage(User: UserVO): UserVO {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -14,10 +18,12 @@ class UserServiceImpl(
 
     override fun register(dto: UserDto): UserVO {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        userRepo.save(UserVO)
 
     }
 
     override fun login(dto : UserDto) : UserVO{
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 }
