@@ -14,7 +14,7 @@ data class ConcertVO (
         @Id
         @GeneratedValue
         var id : String,
-        var concertName : String,
+        var concertId : String,
         var startTime : String,
         var endTime : String,
         var seats : Int,
@@ -22,5 +22,4 @@ data class ConcertVO (
         var regdate : Timestamp,
         @UpdateTimestamp
         var updatedate : Timestamp
-
 )

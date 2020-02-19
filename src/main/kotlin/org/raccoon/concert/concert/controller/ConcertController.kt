@@ -1,6 +1,7 @@
 package org.raccoon.concert.concert.controller
 
 import org.raccoon.concert.concert.service.ConcertService
+import org.raccoon.concert.concert.service.ReserveService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("api/v1/concerts/*")
 class ConcertController (
         @Autowired
-        val concertService : ConcertService
+        val concertService : ConcertService,
+        @Autowired
+        val reserveService : ReserveService
 ){
     @PostMapping("/reservation/{concertId}/{seatNumber}")
     fun reserve(){
@@ -31,19 +34,19 @@ class ConcertController (
     }
 
 
-    @PostMapping()
-    fun registerConcert(){
-
-
-    }
-
     @PutMapping("/{concertId}")
-    fun updateConcert(){
+    fun updateConcert(@PathVariable("concertId") cno : Long){
 
     }
 
     @DeleteMapping("/{concertId}")
-    fun deleteConcert(){
+    fun deleteConcert(@PathVariable("concertId") cno : Long){
+
+    }
+
+    @GetMapping("/{concertId}")
+    fun getConcert(@PathVariable("concertId") cno : Long){
+
 
     }
 

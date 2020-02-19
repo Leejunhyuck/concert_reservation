@@ -1,7 +1,9 @@
 package org.raccoon.concert.user.dto
 
-class UserDto(
-       @NotNull var userId : String,
-       @NotNull var password : String
+import javax.validation.constraints.NotNull
+
+class UserLoginDto(
+        @NotNull var userId : String,
+        @NotNull var password : String
 
 )

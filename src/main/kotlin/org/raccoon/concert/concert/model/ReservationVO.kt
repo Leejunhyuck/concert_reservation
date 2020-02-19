@@ -12,14 +12,13 @@ import javax.persistence.Table
 @Table(name ="reservation")
 class ReservationVO (
         @Id
-        @GeneratedValue
-        var id : Long,
         var userId : String,
-        var concert: Int,
-        var seatNum : Int,
-        @CreationTimestamp
-        var regdate : Timestamp,
-        @UpdateTimestamp
-        var updatedate : Timestamp
-
-)
+        var concert: Long,
+        var seatNum : Long
+//        @CreationTimestamp
+//        var regdate : Timestamp,
+//        @UpdateTimestamp
+//        var updatedate : Timestamp
+) {
+        constructor() : this(userId = "", concert = 0, seatNum = 0)
+}

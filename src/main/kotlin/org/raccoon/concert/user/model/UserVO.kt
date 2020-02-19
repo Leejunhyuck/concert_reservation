@@ -2,12 +2,9 @@ package org.raccoon.concert.user.model
 
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
+import java.sql.Date
 import java.sql.Timestamp
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "user")
@@ -15,14 +12,22 @@ class UserVO (
         @Id
         var userId : String,
         var username : String,
-        var passwrod : String,
-        @CreationTimestamp
-        var regdate : Timestamp,
-        @UpdateTimestamp
-        var updatedate : Timestamp
+        var password : String,
 
-        @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-        @JoinColumn(name = "member")
-        var List<MemberRole> roles;
+//        @CreationTimestamp
+//        var regdate : Timestamp,
+//        @UpdateTimestamp
+//        var updatedate : Timestamp,
 
-)
+        @Enumerated(EnumType.STRING)
+        @ElementCollection(fetch = FetchType.EAGER)
+        var roles :  MutableList<UserRole>
+
+){
+        constructor() : this(
+                userId = "",
+                username="",
+                password = "",
+                roles = mutableListOf(UserRole.USER)
+        )
+}

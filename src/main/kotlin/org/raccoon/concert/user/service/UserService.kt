@@ -1,9 +1,9 @@
 package org.raccoon.concert.user.service
 
-import org.raccoon.concert.user.dto.UserDto
-import org.raccoon.concert.user.model.UserVO
+import org.raccoon.concert.user.dto.MyInfoDto
+import org.raccoon.concert.user.dto.UserLoginDto
+import org.raccoon.concert.user.dto.UserRegDto
 
-interface UserService : GenericService<UserDto> {
-    override fun register(dto : UserDto) : UserVO
-    override fun login(dto : UserDto) : UserVO
+interface UserService : GenericService<UserLoginDto,UserRegDto> {
+    fun mypage(id : String): MyInfoDto
 }
