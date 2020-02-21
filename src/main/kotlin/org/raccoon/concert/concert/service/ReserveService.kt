@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service
 interface ReserveService  {
     fun getReserve(concertId:Long, userId:String ):ReservationVO
     fun deleteReserve(concertId:Long, seatNumber:Long, userId:String)
-    fun updateReserve(concertId:Long, seatNumber:Long, userId:String)
-    fun reserve(concertId:Long, userId:String, seatNumber:Long):ReservationVO
+    fun updateReserve(concertId:Long, seatNumber:Long, userId:String): ReservationVO
+    fun reserve(concertId:Long, userId: String, seatNumber:Long):ReservationVO
 }

@@ -1,9 +1,7 @@
 package org.raccoon.concert.concert.service
 
-import org.raccoon.concert.concert.model.ConcertVO
 import org.raccoon.concert.concert.model.ReservationVO
 import org.raccoon.concert.concert.repositoy.ReseveRepository
-import org.raccoon.concert.user.model.UserVO
 import org.springframework.beans.factory.annotation.Autowired
 
 class ReservationImpl (
@@ -22,8 +20,14 @@ class ReservationImpl (
         return reserve
     }
 
-    override fun updateReserve(concertId: Long, seatNumber: Long, userId: String) {
+    override fun updateReserve(concertId: Long, seatNumber: Long, userId: String): ReservationVO {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var check=reserveRepo.findById(userId)
+        check?:return ReservationVO(userId,concertId,seatNumber)
+
+        var reserveItem = ReservationVO(userId,concertId,seatNumber)
+        var reserve = reserveRepo.save(reserveItem)
+        return reserve
 
     }
 
