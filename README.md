@@ -36,7 +36,7 @@
      VO에는 없는 추가적인 변수를 가질수도 있다. 이렇게 DB의 도메인과 일치하지 않으며, 
      어떤 로직에 사용되는 영속적이지 않는 데이터를 포함하는 DTO클래스로 만들어서 사용한다.
 
-  ## 3. 구조적인 설계
+  ## 2. 구조적인 설계
    * 본 프로젝트의 기능은 크게  user, concert 두가지로 나뉜다. 
    패키지는 크게 모델별로 나누고 기능별로 세분화 하는 것이 좋다고 생각한다. 
     
@@ -45,29 +45,29 @@
     입력, 수정, 삭제하는 식의 작업이라서 테이블별로 분류한 패키지는 DB와 관련된 작업을 편하게 할수 있고, 
     동시에 협업 할 경우에도 패키지구조 이해를 쉽게 할수 있다.
 
-       
-      org
-      └── raccoon
-          └── concert
-              ├── DemoApplication.java
-              ├── user
-              |   ├── service
-              |   ├── controller 
-              |   |     └── reservationConrtoller
-              |   |     └── concertController  
-              |   ├── model
-              |   └── repository              
-              ├── concert
-              |   ├── service
-              |   ├── controller
-              |   |      └── userController  
-              |   ├── model
-              |   └── repository                
-              └── config   
+           
+              org
+              └── raccoon
+                  └── concert
+                      ├── DemoApplication.java
+                      ├── user
+                      |   ├── service
+                      |   ├── controller 
+                      |   |     └── reservationConrtoller
+                      |   |     └── concertController  
+                      |   ├── model
+                      |   └── repository              
+                      ├── concert
+                      |   ├── service
+                      |   ├── controller
+                      |   |      └── userController  
+                      |   ├── model
+                      |   └── repository                
+                      └── config   
     
     
     
-   ## 2. service 객체의 2단 상속
+   ## 3. service 객체의 2단 상속
     
         interface GenericService
         Service extends GenericService
